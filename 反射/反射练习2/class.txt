@@ -1,0 +1,2 @@
+className=反射.反射练习2.Student
+methodName=study

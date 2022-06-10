@@ -1,0 +1,43 @@
+package Java.编程AWT.对话框Dialog练习;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class DialogDemo02 {
+    public static void main(String[] args) {
+        Frame frame = new Frame("这里是测试Dialog");
+
+        //1，创建一个Dialog对象，一个模式的
+        Dialog d1 = new Dialog(frame, "模式对话框",true);
+
+        //创建一个垂直的Box容器，把一个文本框和一个按钮添加到Box容器中
+        Box vBox = Box.createVerticalBox();
+        vBox.add(new TextField(20));
+        vBox.add(new Button("确认"));
+
+        //Box容器添加到Dialog中
+        d1.add(vBox);
+
+        //2，通过setBounds方法设置Dialog的位置和大小
+        d1.setBounds(20,30,300,200);
+
+        //3，创建一个按钮
+        Button b1 = new Button("打开模式对话框");
+
+        //4，给这一个按钮添加点击后的行为
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                d1.setVisible(true);
+            }
+        });
+
+        //5，把按钮添加到frame中
+        frame.add(b1,BorderLayout.NORTH);
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
